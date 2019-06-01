@@ -18,10 +18,7 @@ const {ReactCurrentDispatcher, ReactCurrentOwner} =
   React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
 function readContext<T>(Context: React.Context<T>): T {
-  const dispatcher =
-    ReactCurrentDispatcher != null
-      ? ReactCurrentDispatcher.current
-      : ReactCurrentOwner.currentDispatcher;
+  const dispatcher = ReactCurrentOwner.currentDispatcher;
   return dispatcher.readContext(Context);
 }
 
